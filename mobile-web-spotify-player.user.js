@@ -2,7 +2,7 @@
 // @name         Hide Multiple Spotify Elements
 // @namespace    http://tampermonkey.net/
 // @version      1.2
-// @description  Hides specific elements on Spotify
+// @description  Mobile Spotify web player
 // @author       You
 // @match        https://open.spotify.com/*
 // @grant        none
@@ -35,21 +35,25 @@
 
       //Hide footerbar right controls
       document.querySelector('button[aria-label="Add to Liked Songs"]').parentElement.parentElement.parentElement.style.setProperty('display', 'none', 'important');
+      document.querySelector('button[aria-label="Collapse"]').parentElement.parentElement.parentElement.style.setProperty('display', 'none', 'important');
 
       //Hide media type pills
       document.querySelector('button[aria-label="Audiobooks"]').parentElement.parentElement.parentElement.parentElement.parentElement.style.setProperty('display', 'none', 'important');
 
 
 
-      //Hide header spotify icon
-      document.querySelector('svg[aria-label="Spotify"]').parentElement.style.setProperty('display', 'none', 'important');
-
       //Hide header friends activity button
       document.querySelector('button[aria-label="Friend Activity"]').style.setProperty('display', 'none', 'important');
+      document.querySelector('button[aria-label="What\'s New"]').style.setProperty('display', 'none', 'important');
 
 
       //Hide footer
       document.querySelectorAll('.main-view-container__mh-footer-container').forEach(el => {el.style.setProperty('display', 'none', 'important');});
+
+      //Hide header spotify icon
+      document.querySelector('button[aria-label="Home"]').style.setProperty('display', 'none', 'important');
+      document.querySelector('button[aria-label="Go back"]').style.setProperty('display', 'none', 'important');
+      document.querySelector('button[aria-label="Go forward"]').style.setProperty('display', 'none', 'important');
 
 
 
