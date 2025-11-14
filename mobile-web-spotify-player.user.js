@@ -13,82 +13,47 @@
 
     function hideElements() {
 
-        // fix overall mobile resposiveness
-        document.body.style.setProperty('min-width', '0', 'important');
+      // fix overall mobile resposiveness
+      document.body.style.setProperty('min-width', '0', 'important');
 
 
-        //Hide left sidebar
-        const leftSidebar = document.getElementById('Desktop_LeftSidebar_Id');
-        if (leftSidebar) {
-            leftSidebar.style.display = 'none';
-        }
+      //Hide left sidebar
+      document.getElementById('Desktop_LeftSidebar_Id').style.setProperty('display', 'none', 'important');
 
-        //Hide right sidebar
-        const rightSidebar = document.getElementById('Desktop_PanelContainer_Id');
-        const rightSidebarParent = rightSidebar.parentElement
+      //Hide right sidebar
+      document.getElementById('Desktop_PanelContainer_Id').parentElement.style.setProperty('display', 'none', 'important');
 
-        if (rightSidebar && rightSidebarParent) {
-          rightSidebarParent.style.display = 'none';
-        }
+      // fix footerbar mobile resposiveness
+      document.querySelector('button[aria-label="Now playing view"]').parentElement.parentElement.parentElement.parentElement.parentElement.style.setProperty('justify-content', 'normal', 'important');
+      document.querySelector('button[aria-label="Now playing view"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.setProperty('min-width', '0', 'important');
 
-        const nowPlayingButton = document.querySelector('button[aria-label="Now playing view"]');
-        const nowPlayingButtonParent1 = nowPlayingButton.parentElement;
-        const nowPlayingButtonParent2 = nowPlayingButtonParent1.parentElement;
-        const nowPlayingButtonParent3 = nowPlayingButtonParent2.parentElement;
-        const nowPlayingButtonParent4 = nowPlayingButtonParent3.parentElement;
-        const nowPlayingButtonParent5 = nowPlayingButtonParent4.parentElement;
-        const nowPlayingButtonParent6 = nowPlayingButtonParent5.parentElement;
+      //center and widen footerbar player controls
+      document.querySelector('button[aria-label="Previous"]').parentElement.parentElement.parentElement.parentElement.style.setProperty('width', '100%');
 
-        if (nowPlayingButtonParent5) {
-            nowPlayingButtonParent5.style.setProperty('justify-content', 'normal', 'important');
-            nowPlayingButtonParent6.style.setProperty('min-width', '0', 'important');
-        }
+      //Hide footerbar left controls
+      document.querySelector('button[aria-label="Lyrics"]').parentElement.parentElement.style.setProperty('display', 'none', 'important');
+
+      //Hide footerbar right controls
+      document.querySelector('button[aria-label="Add to Liked Songs"]').parentElement.parentElement.parentElement.style.setProperty('display', 'none', 'important');
+
+      //Hide media type pills
+      document.querySelector('button[aria-label="Audiobooks"]').parentElement.parentElement.parentElement.parentElement.parentElement.style.setProperty('display', 'none', 'important');
 
 
-        const lyricsButton = document.querySelector('button[aria-label="Lyrics"]');
-        const lyricsButtonParent1 = lyricsButton.parentElement;
-        const lyricsButtonParent2 = lyricsButtonParent1.parentElement;
 
-        if (lyricsButtonParent2) {
-            lyricsButtonParent2.style.display = 'none';
-        }
+      //Hide header spotify icon
+      document.querySelector('svg[aria-label="Spotify"]').parentElement.style.setProperty('display', 'none', 'important');
 
-
-        const nowPlayingBarLeftStuff = document.querySelector('button[aria-label="Add to Liked Songs"]');
-        const nowPlayingBarLeftStuffParent1 = nowPlayingBarLeftStuff.parentElement
-        const nowPlayingBarLeftStuffParent2 = nowPlayingBarLeftStuffParent1.parentElement
-        const nowPlayingBarLeftStuffParent3 = nowPlayingBarLeftStuffParent2.parentElement
-        const nowPlayingBarLeftStuffParent4 = nowPlayingBarLeftStuffParent3.parentElement
-        const nowPlayingBarLeftStuffParent5 = nowPlayingBarLeftStuffParent4.parentElement
+      //Hide header friends activity button
+      document.querySelector('button[aria-label="Friend Activity"]').style.setProperty('display', 'none', 'important');
 
 
-        //resize and center controls
-        if(nowPlayingBarLeftStuffParent3){
-          nowPlayingBarLeftStuffParent3.style.display = 'none';
-          nowPlayingBarLeftStuffParent5
-        }
-
-        const nowPlayingBarRightStuff = document.querySelector('button[aria-label="Previous"]');
-        const nowPlayingBarRightStuffParent1 = nowPlayingBarRightStuff.parentElement
-        const nowPlayingBarRightStuffParent2 = nowPlayingBarRightStuffParent1.parentElement
-        const nowPlayingBarRightStuffParent3 = nowPlayingBarRightStuffParent2.parentElement
-        const nowPlayingBarRightStuffParent4 = nowPlayingBarRightStuffParent3.parentElement
-        if(nowPlayingBarRightStuffParent4){
-          nowPlayingBarRightStuffParent4.style.setProperty('width', '100%');
-        }
+      //Hide footer
+      document.querySelectorAll('.main-view-container__mh-footer-container').forEach(el => {el.style.setProperty('display', 'none', 'important');});
 
 
-        const spotifyLogo = document.querySelector('svg[aria-label="Spotify"]');
-        const spotifyLogoParent1 = spotifyLogo.parentElement
-        const spotifyLogoParent2 = spotifyLogoParent1.parentElement
 
-        if(spotifyLogoParent2){
-          spotifyLogoParent2.style.setProperty('display', 'none', 'important');;
-        }
 
-        document.querySelectorAll('.main-view-container__mh-footer-container').forEach(el => {
-            el.style.setProperty('display', 'none', 'important');
-        });
     }
 
 
