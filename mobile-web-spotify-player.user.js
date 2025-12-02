@@ -36,25 +36,25 @@
       document.getElementById('Desktop_PanelContainer_Id').parentElement.style.setProperty('display', 'none', 'important');
 
       //Hide footer
-      document.querySelectorAll('.main-view-container__mh-footer-container').forEach(el => {el.style.setProperty('display', 'none', 'important');});
-
-      //Hide footerbar right controls
-      document.querySelector('button[aria-label="Add to Liked Songs"]').parentElement.parentElement.parentElement.style.setProperty('display', 'none', 'important');
-      document.querySelector('button[aria-label="Collapse"]').parentElement.parentElement.parentElement.style.setProperty('display', 'none', 'important');
+      // document.querySelectorAll('.main-view-container__mh-footer-container').forEach(el => {el.style.setProperty('display', 'none', 'important');});
 
       //center and widen footerbar player controls
       document.querySelector('button[aria-label="Previous"]').parentElement.parentElement.parentElement.parentElement.style.setProperty('width', '100%');
 
-
       // fix footerbar mobile resposiveness
-      document.querySelector('button[aria-label="Now playing view"]').parentElement.parentElement.parentElement.parentElement.parentElement.style.setProperty('justify-content', 'normal', 'important');
-      document.querySelector('button[aria-label="Now playing view"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.setProperty('min-width', '0', 'important');
+      // document.querySelector('button[aria-label="Now playing view"]').parentElement.parentElement.parentElement.parentElement.parentElement.style.setProperty('justify-content', 'normal', 'important');
+      // document.querySelector('button[aria-label="Now playing view"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.setProperty('min-width', '0', 'important');
 
+       //Hide footerbar right controls
+      document.querySelector('button[aria-label="Add to Liked Songs"]').parentElement.parentElement.parentElement.style.setProperty('display', 'none', 'important');
+      document.querySelector('button[aria-label="Collapse"]').parentElement.parentElement.parentElement.style.setProperty('display', 'none', 'important');
 
       //Hide media type pills
-      document.querySelector('button[aria-label="Audiobooks"]').parentElement.parentElement.parentElement.parentElement.parentElement.style.setProperty('display', 'none', 'important');
+      // document.querySelector('button[aria-label="Audiobooks"]').parentElement.parentElement.parentElement.parentElement.parentElement.style.setProperty('display', 'none', 'important');
+
 
     }
+
 
     const observer = new MutationObserver(() => {
       // setTimeout(function() { hideElements(); }, 2000);
