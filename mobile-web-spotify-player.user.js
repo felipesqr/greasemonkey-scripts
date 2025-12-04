@@ -94,7 +94,6 @@
 
     // list of tasks in the order they originally appeared
     const tasks = [
-
       fixOverallMobileResponsiveness,
       hideLeftSidebar,
       hideRightSidebar,
@@ -102,15 +101,13 @@
       hideHeaderFriendsActivityButton,
       hideMediaTypePills,
       hideFooter,
-
       centerAndWidenFooterbarPlayerControls,
       fixFooterbarMobileResponsiveness,
-
       hideFooterbarRightControls,
       hideFooterbarLeftControls
-
     ];
 
+    let delay = 100
     // track scheduled timeouts so we can cancel if needed
     let scheduled = [];
 
@@ -120,7 +117,7 @@
     }
 
     // run the task list one at a time, `delay` ms apart
-    function runSequentially(list, delay = 2000) {
+    function runSequentially(list, delay = delay) {
       clearScheduled();
       list.forEach((fn, i) => {
         const id = setTimeout(() => {
@@ -132,11 +129,11 @@
 
 
     const observer = new MutationObserver(() => {
-      runSequentially(tasks, 2000);
+      runSequentially(tasks, delay);
     });
 
     // initial run
-    runSequentially(tasks, 2000);
+    runSequentially(tasks, delay);
 
     observer.observe(document.body, {
         childList: true,
