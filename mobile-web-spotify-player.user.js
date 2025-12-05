@@ -25,6 +25,7 @@
       if (goBackParent) goBackParent.style.setProperty('display', 'none', 'important');
     }
 
+
     // Hide header friends activity button
     function hideHeaderFriendsActivityButton() {
       const whatsNew = document.querySelector('button[aria-label="What\'s New"]');
@@ -34,12 +35,49 @@
       if (fab) fab.style.setProperty('display', 'none', 'important');
     }
 
-    // Hide footerbar left controls
-    function hideFooterbarLeftControls() {
-      const q = document.querySelector('button[aria-label="Queue"]');
-      const parent = q?.parentElement?.parentElement?.parentElement;
-      if (parent) parent.style.setProperty('display', 'none', 'important');
+
+      // Hide media type pills
+    function hideMediaTypePills() {
+      const a = document.querySelector('button[aria-label="Audiobooks"]')?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement;
+      if (a) a.style.setProperty('display', 'none', 'important');
     }
+
+
+    // Hide footerbar left controls
+    function hideFooterbarRightControls() {
+      const q = document.querySelector('button[aria-label="Queue"]');
+      if (q) q.style.setProperty('display', 'none', 'important');
+
+      const qp = q?.parentElement?.parentElement;
+      if (qp) qp.style.setProperty('width', '0px', 'important');
+
+      const parent = q?.parentElement?.parentElement?.parentElement;
+      if (parent) {
+        parent.style.setProperty('min-width', '0px', 'important');
+        parent.style.setProperty('width', '0px', 'important');
+      }
+
+
+      const m = document.querySelector('button[aria-label="Mute"]');
+      const mp = m?.parentElement;
+      if (mp) mp.style.setProperty('display', 'none', 'important');
+
+      const eqs = document.querySelector('button[aria-label="Enter Full screen"]');
+      if (eqs) eqs.style.setProperty('display', 'none', 'important');
+
+      const om = document.querySelector('button[aria-label="Open Miniplayer"]');
+      if (om) om.style.setProperty('display', 'none', 'important');
+
+      const ctd = document.querySelector('button[aria-label="Connect to a device"]');
+      if (ctd) ctd.style.setProperty('display', 'none', 'important');
+
+      // get all matching buttons and prefer the second one
+      const npvButtons = document.querySelectorAll('button[aria-label="Now playing view"]');
+      const npv = npvButtons && npvButtons.length > 1 ? npvButtons[1] : npvButtons[0] || null;
+      if (npv) npv.style.setProperty('display', 'none', 'important');
+
+    }
+
 
     // Hide left sidebar
     function hideLeftSidebar() {
@@ -47,11 +85,18 @@
       if (left) left.style.setProperty('display', 'none', 'important');
     }
 
+
     // Hide right sidebar
     function hideRightSidebar() {
-      const right = document.getElementById('Desktop_PanelContainer_Id')?.parentElement;
-      if (right) right.style.setProperty('display', 'none', 'important');
+      // const right = document.getElementById('Desktop_PanelContainer_Id')?.parentElement;
+      // if (right) right.style.setProperty('display', 'none', 'important');
+
+      const btn = document.querySelector('button[aria-label="Hide Now Playing view"]');
+      if (btn) {
+        try { btn.click(); } catch (e) { console.error('Could not click Hide Now Playing view button', e); }
+      }
     }
+
 
     // Hide footer
     function hideFooter() {
@@ -60,6 +105,7 @@
       });
     }
 
+
     // center and widen footerbar player controls
     function centerAndWidenFooterbarPlayerControls() {
       const prev = document.querySelector('button[aria-label="Previous"]');
@@ -67,30 +113,26 @@
       if (target) target.style.setProperty('width', '100%');
     }
 
+
     // fix footerbar mobile resposiveness
     function fixFooterbarMobileResponsiveness() {
-      const nowPlaying = document.querySelector('button[aria-label="Now playing view"]');
+      const nowPlaying = document.querySelector('button[aria-label="Queue"]');
       const a = nowPlaying?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement;
-      if (a) a.style.setProperty('justify-content', 'normal', 'important');
+      if (a) {
+        a.style.setProperty('justify-content', 'normal', 'important');
+        a.style.setProperty('min-width', '0', 'important');
+      }
 
-      const b = nowPlaying?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement;
-      if (b) b.style.setProperty('min-width', '0', 'important');
     }
 
-    // Hide footerbar right controls
-    function hideFooterbarRightControls() {
-      const a = document.querySelector('button[aria-label="Add to Liked Songs"]')?.parentElement?.parentElement?.parentElement;
-      if (a) a.style.setProperty('display', 'none', 'important');
 
-      const b = document.querySelector('button[aria-label="Collapse"]')?.parentElement?.parentElement?.parentElement;
-      if (b) b.style.setProperty('display', 'none', 'important');
+    // Hide footerbar Left controls
+    function hideFooterbarLeftControls() {
+      const c = document.querySelector('div[data-testid="now-playing-widget"]');
+      const cp = c?.parentElement;
+      if (cp) cp.style.setProperty('display', 'none', 'important');
     }
 
-    // Hide media type pills
-    function hideMediaTypePills() {
-      const a = document.querySelector('button[aria-label="Audiobooks"]')?.parentElement?.parentElement?.parentElement?.parentElement?.parentElement;
-      if (a) a.style.setProperty('display', 'none', 'important');
-    }
 
     // list of tasks in the order they originally appeared
     const tasks = [
